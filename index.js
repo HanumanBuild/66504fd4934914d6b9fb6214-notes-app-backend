@@ -17,6 +17,14 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
+// Import routes
+const authRoutes = require('./routes/auth');
+const noteRoutes = require('./routes/notes');
+
+// Use routes
+app.use('/auth', authRoutes);
+app.use('/notes', noteRoutes);
+
 // Basic route
 app.get('/', (req, res) => {
   res.send('Hello World!');
