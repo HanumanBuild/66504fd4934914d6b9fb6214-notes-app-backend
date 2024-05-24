@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors()); // Add this line to enable CORS for all origins
 
 // MongoDB connection
 const dbURI = process.env.MONGODB_URI;
